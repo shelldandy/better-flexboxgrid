@@ -1,0 +1,22 @@
+
+.row
+  @extend %row
+
+// Ahora vamos a hacer uso de nuestro mixin para todas las cuestiones generales
+// @each $val in $grid__breakpoints
+//   $breakpoint : nth($val, 1)
+//   +grid-base($breakpoint)
+// Ahora toca el mixin de grid sizes
+@each $val in $grid__breakpoints
+  // Esto primero avienta las columnas xs (o las primeras) que van sin media query para el mobile first
+  @if length($val) == 1
+    $breakpoint : nth($val, 1)
+    +grid-base($breakpoint)
+    +grid-sizes($breakpoint)
+  @else
+    // Y ahora si entran las demás basadas en nuestro grid
+    $breakpoint       : nth($val, 1)
+    $breakpoint__size : nth($val, 2)
+    @media only screen and (min-width: #{ $breakpoint__size })
+      // +grid-base($breakpoint)
+      +grid-sizes($breakpoint)

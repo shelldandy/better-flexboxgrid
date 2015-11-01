@@ -1,0 +1,60 @@
+// This mixins help us get the gutter that we want to our column
+// I'm assuming you want padding and your orientation is horizontal
+@mixin gutter($gutter, $type: padding, $orientation: horizontal)
+  @if $orientation == horizontal
+    #{ $type  }-left    : $gutter
+    #{ $type  }-right   : $gutter
+  @else if $orientation == vertical
+    #{ $type  }-top     : $gutter
+    #{ $type  }-bottom  : $gutter
+  @else
+    @error " 😩 Sorry but '#{$orientation}' is not a correct value. You can pick horizontal or vertical"
+
+
+// Let's make our general stuff here making use of the extends
+
+%row
+  display             : flex
+  flex-direction      : row
+  flex-wrap           : wrap
+  align-items         : center
+  +gutter($col-gutter, margin)
+
+%col
+  flex                  : 0 0 auto
+  flex-direction        : column
+  flex-grow             : 0
+  flex-shrink           : 0
+  +gutter($col-gutter)
+%col-flex
+  @extend %col
+  flex-grow             : 1
+  flex-basis            : 0
+  max-width             : 100%
+
+
+// Time to generate the columns
+// col-[breakpoint] Will work for our different media queries we want to apply
+
+// This first mixin does the extend thing that every column share
+@mixin grid-base ($breakpoint)
+  .col-#{ $breakpoint }
+    @extend %col-flex
+
+  @for $i from 1 through $col-num
+    .col-#{ $breakpoint }-#{ $i }
+      @extend %col
+
+// And this one sets everything that each column has in a particular way
+@mixin grid-sizes ($breakpoint)
+  // This loop takes care of the width
+  @for $i from 1 through $col-num
+    .col-#{ $breakpoint }-#{ $i }
+      flex-basis        : col-porcent($i)
+      max-width         : col-porcent($i)
+  // And this one of the offsets
+  @for $i from 1 through $col-num
+    // We don't need the last offset since we don't want a row totally offsetted
+    @if ($i != $col-num)
+      .offset-#{ $breakpoint }-#{ $i }
+        margin-left     : col-porcent($i)
