@@ -1,0 +1,29 @@
+{
+  "name": "better-flexboxgrid",
+  "version": "1.0.0",
+  "description": "flexboxgrid but with sass",
+  "main": "?",
+  "scripts": {
+    "test": "?"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mike3run/better-flexboxgrid.git"
+  },
+  "keywords": [
+    "flexbox",
+    "grid",
+    "sass",
+    "gulp"
+  ],
+  "author": "@mpalau",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mike3run/better-flexboxgrid/issues"
+  },
+  "homepage": "https://github.com/mike3run/better-flexboxgrid#readme",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-sass": "^2.1.0"
+  }
+}
