@@ -7,6 +7,18 @@ Using gulp for the compilation so please do
 ```
 npm install
 ```
+Also since we are using [gulp](http://gulpjs.com/) if you want to compile changes just run
+
+```
+gulp sass
+```
+
+Or simply
+```
+gulp
+```
+To auto-compile everything on changes.
+
 ## Pending Stuff
 Maybe more mobile first?
 Thinking flex-direction row first and after a media query become row??
