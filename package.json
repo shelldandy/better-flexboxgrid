@@ -2,9 +2,9 @@
   "name": "better-flexboxgrid",
   "version": "1.0.0",
   "description": "flexboxgrid but with sass",
-  "main": "?",
+  "main": "gulpfile.js",
   "scripts": {
-    "test": "?"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",

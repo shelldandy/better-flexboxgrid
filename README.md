@@ -20,7 +20,6 @@ gulp
 To auto-compile everything on changes.
 
 ## Pending Stuff
-Maybe more mobile first?
-Thinking flex-direction row first and after a media query become row??
+Turns out flexboxgrid wasn't that good to begin with. Will keep you updated…
 
 Please help 🐶
